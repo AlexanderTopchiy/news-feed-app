@@ -23,10 +23,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
      */
     static class ViewHolder {
 
-        public TextView sectionTextView;
-        public TextView titleTextView;
-        public TextView dateTextView;
-        public TextView timeTextView;
+        private TextView sectionTextView;
+        private TextView titleTextView;
+        private TextView dateTextView;
+        private TextView timeTextView;
     }
 
 
@@ -75,7 +75,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
         holder.sectionTextView.setText(currentNews.getSectionName());
         holder.titleTextView.setText(currentNews.getTitle());
         holder.dateTextView.setText(currentNews.getPublicationDate());
-        holder.timeTextView.setText(currentNews.getUrl());
+        holder.timeTextView.setText(currentNews.getPublicationDate());
 
         return convertView;
     }
