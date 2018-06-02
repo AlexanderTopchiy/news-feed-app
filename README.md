@@ -8,7 +8,7 @@ This app will help you to read interesting news from The Guardian website using 
 
 ## Screenshot
 
-! [News Feed](https://image.ibb.co/mpkfNd/News_Feed_screenshot.png)
+![News Feed](https://image.ibb.co/mpkfNd/News_Feed_screenshot.png)
 
 ## One-file installation
 
