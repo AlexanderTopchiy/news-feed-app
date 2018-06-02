@@ -10,7 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * {@link NewsAdapter} is an {@link ArrayAdapter} that can provide the layout for each list item
@@ -71,12 +77,50 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Get the News object located at this position in the list.
         News currentNews = getItem(position);
 
+        // Create a new Date object from the time in ISO-8601 format of the news.
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat("yyyy-MM-dd'T'kk:mm:ss'Z'", Locale.ENGLISH);
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+        Date dateObject = null;
+        try {
+            dateObject = simpleDateFormat.parse(currentNews.getPublicationDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        // Format the date string (i.e. "Mar 3, 1984").
+        String formattedDate = formatDate(dateObject);
+        // Format the time string (i.e. "4:30PM").
+        String formattedTime = formatTime(dateObject);
+
         // Set proper data in news_list_item by using ViewHolder.
         holder.sectionTextView.setText(currentNews.getSectionName());
         holder.titleTextView.setText(currentNews.getTitle());
-        holder.dateTextView.setText(currentNews.getPublicationDate());
-        holder.timeTextView.setText(currentNews.getPublicationDate());
+        holder.dateTextView.setText(formattedDate);
+        holder.timeTextView.setText(formattedTime);
 
         return convertView;
+    }
+
+
+    /**
+     * Return the formatted date string (i.e. "Mar 3, 1984") from a Date object.
+     * @param dateObject is the time of news in ISO-8601 format.
+     */
+    private String formatDate(Date dateObject) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy", Locale.ENGLISH);
+        dateFormat.setTimeZone(TimeZone.getDefault());
+        return dateFormat.format(dateObject);
+    }
+
+
+    /**
+     * Return the formatted date string (i.e. "4:30 PM") from a Date object.
+     * @param dateObject is the time of news in ISO-8601 format0.
+     */
+    private String formatTime(Date dateObject) {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a", Locale.ENGLISH);
+        timeFormat.setTimeZone(TimeZone.getDefault());
+        return timeFormat.format(dateObject);
     }
 }
