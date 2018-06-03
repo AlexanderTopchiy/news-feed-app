@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">News Feed</string>
     <string name="section_holder">Life and style</string>
+    <string name="author_holder">Some Author</string>
     <string name="title_holder">Long placeholder title that should wrap to more
         than 2 lines of text</string>
     <string name="date_holder">May 26, 2018</string>

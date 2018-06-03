@@ -8,6 +8,7 @@ public class News {
 
     // Information about news
     private String mSectionName;
+    private String mAuthor;
     private String mTitle;
     private String mPublicationDate;
     private String mUrl;
@@ -16,12 +17,14 @@ public class News {
     /**
      * Create the {@link News} object.
      * @param section is the news category name.
+     * @param author is the name of news author.
      * @param title is the news title.
      * @param publicationDate is the news publication date.
      * @param url is the news url.
      */
-    public News(String section, String title, String publicationDate, String url) {
+    public News(String section, String author, String title, String publicationDate, String url) {
         mSectionName = section;
+        mAuthor = author;
         mTitle = title;
         mPublicationDate = publicationDate;
         mUrl = url;
@@ -34,6 +37,11 @@ public class News {
      */
     public String getSectionName() {
         return mSectionName;
+    }
+
+
+    public String getAuthor() {
+        return mAuthor;
     }
 
 

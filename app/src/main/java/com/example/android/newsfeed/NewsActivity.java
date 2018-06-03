@@ -23,7 +23,7 @@ public class NewsActivity extends AppCompatActivity
 
     /** URL for earthquake data from The Guardian API */
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?api-key=test&format=json&q=vegan&page=1&page-size=20&order-by=newest";
+            "https://content.guardianapis.com/search?api-key=test&format=json&q=vegan&page=1&page-size=20&order-by=newest&show-tags=contributor";
 
     // The tag for log messages.
     public static final String LOG_TAG = NewsActivity.class.getName();

@@ -30,6 +30,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
     static class ViewHolder {
 
         private TextView sectionTextView;
+        private TextView authorTextView;
         private TextView titleTextView;
         private TextView dateTextView;
         private TextView timeTextView;
@@ -66,6 +67,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
                     .inflate(R.layout.news_list_item, parent, false);
             holder = new ViewHolder();
             holder.sectionTextView = convertView.findViewById(R.id.section);
+            holder.authorTextView = convertView.findViewById(R.id.author);
             holder.titleTextView = convertView.findViewById(R.id.title);
             holder.dateTextView = convertView.findViewById(R.id.date);
             holder.timeTextView = convertView.findViewById(R.id.time);
@@ -95,6 +97,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Set proper data in news_list_item by using ViewHolder.
         holder.sectionTextView.setText(currentNews.getSectionName());
+        holder.authorTextView.setText(currentNews.getAuthor());
         holder.titleTextView.setText(currentNews.getTitle());
         holder.dateTextView.setText(formattedDate);
         holder.timeTextView.setText(formattedTime);
