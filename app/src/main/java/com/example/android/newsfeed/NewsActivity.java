@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -177,6 +178,7 @@ public class NewsActivity extends AppCompatActivity
 
         // Set empty state text to display "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
+        mEmptyStateTextView.setGravity(Gravity.CENTER);
 
         // Clear the adapter of previous news data
         mAdapter.clear();
