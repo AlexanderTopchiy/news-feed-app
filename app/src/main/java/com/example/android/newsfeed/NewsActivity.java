@@ -172,13 +172,26 @@ public class NewsActivity extends AppCompatActivity
 
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> news) {
+        // Get a reference to the ConnectivityManager to check state of network connectivity
+        ConnectivityManager connMgr = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+
         // Hide loading indicator because the data has been loaded
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No news found."
-        mEmptyStateTextView.setText(R.string.no_news);
-        mEmptyStateTextView.setGravity(Gravity.CENTER);
+        // If there is a network connection, fetch data
+        if (networkInfo != null && networkInfo.isConnected()) {
+            // Set empty state text to display "No news found."
+            mEmptyStateTextView.setText(R.string.no_news);
+            mEmptyStateTextView.setGravity(Gravity.CENTER);
+        } else {
+            // Update empty state with no connection error message
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
+        }
 
         // Clear the adapter of previous news data
         mAdapter.clear();
