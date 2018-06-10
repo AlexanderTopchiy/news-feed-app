@@ -6,13 +6,15 @@ Hi! This is my project №6 at the Udacity + Google Android Basics Nanodegree Sc
 
 This app will help you to read interesting news from The Guardian website using their API.
 
-## Screenshot
+## Screenshots
 
-![News Feed](https://image.ibb.co/b7WSLy/News_Feed_screenshot.png)
+![News Feed main screen](https://image.ibb.co/eA4rA8/News_Feed_screenshot_1.png)
+![News Feed settings menu](https://image.ibb.co/hwVyq8/News_Feed_screenshot_2.png)
+![News Feed edit settings](https://image.ibb.co/eUuxiT/News_Feed_screenshot_3.png)
 
 ## One-file installation
 
-Here is the [APK file](https://www.dropbox.com/s/azzatz9bj5xxn7i/NewsFeed.apk?dl=0).
+Here is the [APK file](https://www.dropbox.com/s/u9k7km28iypgfk1/NewsFeed.apk?dl=0).
 
 ## License
 ```
