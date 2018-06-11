@@ -45,6 +45,23 @@ public class NewsActivity extends AppCompatActivity
     /** TextView that is displayed when the list is empty */
     private TextView mEmptyStateTextView;
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Listener for Shared Preferences
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.OnSharedPreferenceChangeListener prefListener =
+                new SharedPreferences.OnSharedPreferenceChangeListener() {
+                    @Override
+                    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                        getLoaderManager().restartLoader(NEWS_LOADER_ID, null, NewsActivity.this);
+                    }
+                };
+        sharedPrefs.registerOnSharedPreferenceChangeListener(prefListener);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
